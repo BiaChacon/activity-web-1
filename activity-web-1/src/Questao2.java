@@ -13,19 +13,19 @@ public class Questao2 extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException, ServletException {
 		 
-		String nome = req.getParameter("nome");
+	String nome = req.getParameter("nome");
         String email = req.getParameter("email");
         String senha = req.getParameter("senha");
         String repetesenha = req.getParameter("repetesenha");
         
         if(nome.isEmpty() || email.isEmpty() || senha.isEmpty() || repetesenha.isEmpty() ) {
-        	resp.getWriter().println("Voce n„o preencheu todos os dados");
+        	resp.getWriter().println("Voce n√£o preencheu todos os dados");
         }else if(! senha.equals(repetesenha)) {
-        	resp.getWriter().println("Sua senha n„o esta igual");
+        	resp.getWriter().println("Sua senha n√£o esta igual");
         }else if(String.valueOf(senha).length() < 6) {
-        	resp.getWriter().println("Sua senha n„o È segura, pois n„o tem mais de 5 caracteres");
+        	resp.getWriter().println("Sua senha n√£o √© segura, pois n√£o tem mais de 5 caracteres");
         }else if(verificarNumero(senha)){
-        	resp.getWriter().println("Sua senha n„o È segura, pois n„o possui n˙meros");
+        	resp.getWriter().println("Sua senha n√£o √© segura, pois n√£o possui n√∫meros");
         }else {
         	resp.getWriter().println("Cadastro realizado");
         }
